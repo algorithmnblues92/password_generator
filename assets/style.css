@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+.mainBox {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 40%;
+    height: 750px;
+    font-size: 25px;
+    box-shadow: -1px 1px 10px 10px gray;
+}
+
+#totalNumber {
+    display: flex;
+    text-align: center;
+    flex-flow: column;
+}
+
+#passwordHere {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    word-break: break-word;
+    width: 80%;
+    height: 175px;
+    border: 5px dashed pink;
+    font-size: 20px;
+}
+
+button {
+    width: 20%;
+    padding: 20px;
+    background-color: red;
+    box-shadow: -1px 1px 10px 10px pink;
+}
+
+@media only screen and (max-width: 390px) {
+
+    body {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    }
+
+    .mainBox {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 80%;
+    height: 750px;
+    font-size: 18px;
+    box-shadow: -1px 1px 10px 10px gray;
+    }
+
+    h1 {
+        display: flex;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #totalNumber {
+    display: flex;
+    text-align: center;
+    flex-flow: column;
+    }
+
+    #passwordHere {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    word-break: break-word;
+    width: 80%;
+    height: 175px;
+    border: 5px dashed pink;
+    font-size: 15px;
+    }
+    
+    button {
+    width: 40%;
+    padding: 20px;
+    background-color: red;
+    box-shadow: -1px 1px 10px 10px pink;
+    }
+
+}
