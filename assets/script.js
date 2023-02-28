@@ -1,10 +1,36 @@
 function submitForm() {
 
-const nol = prompt("Number of Letters");
-const non = prompt("Number of Capital Letters");
-const nosc = prompt("Number of Special Characters");
-const nocl = prompt("Number of #s");
+ var nol = prompt("Number of Letters");
+ var non = prompt("Number of Capital Letters");
+ var nosc = prompt("Number of Special Characters");
+ var nocl = prompt("Number of #s");
 
+console.log("nol :" + nol);
+console.log("non :" + non);
+console.log("nosc :" + nosc);
+console.log("nocl :" + nocl);
+
+console.log("nol :" + typeof nol);
+
+if (nol == "") {
+ var nol = prompt("Number of Letters");
+}
+
+if (non == "") {
+ var non = prompt("Number of Capital Letters");
+}
+
+if (nosc == "") {
+ var nosc = prompt("Number of Special Characters");
+}
+
+if (nocl == "") {
+ var nocl = prompt("Number of #s");
+}
+
+if (nol == "" || non == ""|| nosc == "" || nocl == "" ) {
+ alert("All fields require input")
+}
 
 function randomNumber(max) { 
  return (Math.floor(Math.random() * max));
@@ -212,8 +238,17 @@ document.getElementById("passwordHere").innerHTML = removeCommas;
 }
 }
 
+
 else if (numberOfCharacters < 8 || numberOfCharacters > 128) {
+
  document.getElementById("totalNumber").innerHTML = "Must be atleast 8 and no more than 128";
  document.getElementById("passwordHere").innerHTML = "Your Password";
+
+if (nol === "" || nol == null || noll == 'undefined') {
+
+ document.getElementById("totalNumber").innerHtml = "One of your entries was empty";
+};
+ 
 }
+
 };

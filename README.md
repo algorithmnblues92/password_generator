@@ -6,7 +6,7 @@ A basic password generator that randomly creates a string of lowercase, uppercas
 
 ### Screenshots
 
-![Desktop Version](assets/images/pwgen_desktop.png)
+![Desktop Version](assets/images/pwgen_desktop2.png)
 
 ![Mobile Version](assets/images/pwgen_mobile.png)
 
