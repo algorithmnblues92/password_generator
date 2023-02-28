@@ -1,14 +1,17 @@
+localStorage.clear();
+
 function submitForm() {
 
  var nol = prompt("Number of Letters");
- var non = prompt("Number of Capital Letters");
+ var nocl = prompt("Number of Capital Letters");
  var nosc = prompt("Number of Special Characters");
- var nocl = prompt("Number of #s");
+ var non = prompt("Number of #s");
 
 console.log("nol :" + nol);
-console.log("non :" + non);
-console.log("nosc :" + nosc);
 console.log("nocl :" + nocl);
+console.log("nosc :" + nosc);
+console.log("non :" + non);
+
 
 console.log("nol :" + typeof nol);
 
@@ -33,24 +36,30 @@ if (nol == "" || non == ""|| nosc == "" || nocl == "" ) {
 }
 
 function randomNumber(max) { 
- return (Math.floor(Math.random() * max));
+ return (Math.ceil(Math.floor(Math.random() * max)));
 };
 
 const passwordArray = [];
 const sCArray = [];
 const numbersArray = [];
 
-var x = 0;
-var q = 0;
-var f = 0;
+var x;
+var q;
+var f;
 
 nextLetter = "a";
 addSC = "c";
 
-const fieldEntryTotalLetters = nol - nocl;
+if (nol - nocl != 0) {
+var fieldEntryTotalLetters = nol - nocl;
+var numberOfCharacters = parseInt(nol) - parseInt(nocl) + parseInt(non) + parseInt(nosc) + parseInt(nocl);
+} else {
+fieldEntryTotalLetters = nocl;
+numberOfCharacters = parseInt(nocl) + parseInt(non) + parseInt(nosc);
+nol = 0;
+}
 
-const numberOfCharacters = parseInt(nol) - parseInt(nocl) + parseInt(non) + parseInt(nosc) + parseInt(nocl);
-
+console.log("fieldEntryTotalLetters :" + fieldEntryTotalLetters);
 
 const totalNumberofChars = numberOfCharacters;
 
@@ -59,7 +68,7 @@ if (numberOfCharacters > 7 && numberOfCharacters < 129) {
 
 console.log(nol.value);
 
-console.log("Lowercase Letters :" + fieldEntryTotalLetters + " Numbers :" + non + " Special Characters :" + non + " Capitals :" + nosc)
+console.log("Lowercase Letters :" + fieldEntryTotalLetters + " Numbers :" + non + " Special Characters :" + nosc + " Capitals :" + nocl)
 
 document.getElementById("totalNumber").innerHTML = "Total # of Characters: " + totalNumberofChars;
 
@@ -177,8 +186,8 @@ else if (q == 8) {
 }
 };
 
-for(n=0; n < fieldEntryTotalLetters; n++) {
-
+if (nol > 0) {
+ for(n=0; n < fieldEntryTotalLetters; n++) {
 var x = randomNumber(26) + 1;
 console.log("random number generator: " + x);
 randomConversion();
@@ -186,12 +195,43 @@ randomConversion();
 console.log("The next letter is " + nextLetter);
 
 passwordArray.push(nextLetter);
+}
 
+}
 console.log(passwordArray);
 
 console.log("length of pw array: " + passwordArray.length);
 
-if (passwordArray.length == fieldEntryTotalLetters) {
+    console.log("password array #1 :" + passwordArray);
+  console.log("password array length:" + passwordArray.length);
+
+ if (nol == 0) {
+    console.log("password array #2 :" + passwordArray);
+  console.log("password array length:" + passwordArray.length);
+ for(u=0; u < nocl; u++) {
+ let t = randomNumber(26) + 1;
+ let posVar = randomNumber(passwordArray.length);
+
+  passwordArray.push(capitalArray[t]);
+ console.log("Capital Letters :" + capitalArray[t]);
+ }
+  console.log("password array after if for loop for capital array :" + passwordArray);
+  console.log("password array length:" + passwordArray.length);
+ } else {
+ for(u=0; u < nocl; u++) {
+      console.log("password array #3 :" + passwordArray);
+  console.log("password array length:" + passwordArray.length);
+ let t = randomNumber(26) + 1;
+ let posVar2 = randomNumber(passwordArray.length);
+       console.log("password array #4 :" + passwordArray);
+  console.log("password array length:" + passwordArray.length);
+ 
+ passwordArray.push(capitalArray[t]);
+ console.log("Capital Letters :" + capitalArray[t])
+ }
+console.log("password array after else for loop for capital array :" + passwordArray);
+console.log("password array length:" + passwordArray.length);
+ }
 
 for(b=0; b < nosc; b++) {
 var q = randomNumber(7) + 1;
@@ -200,55 +240,50 @@ console.log("random number generator for q: " + q);
 specialCharacters();
 
 sCArray.push(addSC);
-console.log(sCArray);
-
+console.log("special character array :" + sCArray);
 }
+console.log("password array after sc array push:" + passwordArray);
+console.log("password array length:" + passwordArray.length);
+
 
 for(g=0; g < non; g++) {
 var f = randomNumber(passwordArray.length) + 1;
 var randomNum4ArrayVar =  randomNumber(8) + 1;
 
 passwordArray.splice(f, 0, randomNum4ArrayVar);
+console.log("Random Number :" + randomNum4ArrayVar);
 }
+console.log("password array after rng:" + passwordArray);
+console.log("password array length:" + passwordArray.length);
 
 for(t=0; t < nosc; t++) {
 var z = randomNumber(passwordArray.length) + 1;
 
 passwordArray.splice(z, 0, sCArray[t])
+console.log("Special Characters :" + sCArray[t]);
+}
+console.log("password array after sc splice:" + passwordArray);
+console.log("password array length:" + passwordArray.length);
 
 }
-
-for(u=0; u < nocl; u++) {
- var t = randomNumber(26) + 1;
- 
- passwordArray.splice(t, 0, capitalArray[u]);
- 
-}
-
-
-const arrayToString = passwordArray.toString();
-
-console.log(arrayToString);
-
-const removeCommas = arrayToString.replaceAll(',','');
-
-document.getElementById("passwordHere").innerHTML = removeCommas;
-
-}
-}
-}
-
 
 else if (numberOfCharacters < 8 || numberOfCharacters > 128) {
 
  document.getElementById("totalNumber").innerHTML = "Must be atleast 8 and no more than 128";
  document.getElementById("passwordHere").innerHTML = "Your Password";
-
-if (nol === "" || nol == null || noll == 'undefined') {
-
- document.getElementById("totalNumber").innerHtml = "One of your entries was empty";
-};
  
 }
+
+const arrayToString = passwordArray.toString();
+
+console.log("arrayToString :" + arrayToString);
+
+const removeCommas = arrayToString.replaceAll(',','');
+
+document.getElementById("passwordHere").innerHTML = removeCommas;
+
+console.log(passwordArray);
+console.log(sCArray);
+console.log(numbersArray);
 
 };
