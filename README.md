@@ -8,7 +8,7 @@ A basic password generator that randomly creates a string of lowercase, uppercas
 
 ![Desktop Version](assets/images/pwgen_desktop2.png)
 
-![Mobile Version](assets/images/pwgen_mobile.png)
+![Mobile Version](assets/images/pwgen_mobile2.png)
 
 ### Deployed Website Link
 
